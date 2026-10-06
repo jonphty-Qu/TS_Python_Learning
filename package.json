@@ -1,0 +1,17 @@
+{
+  "name": "typescript-todo-training",
+  "version": "1.0.0",
+  "private": true,
+  "description": "TypeScript Schritt fuer Schritt lernen: kleine Aufgabenverwaltung",
+  "type": "module",
+  "scripts": {
+    "start": "tsx src/index.ts",
+    "dev": "tsx watch src/index.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.4",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  }
+}
