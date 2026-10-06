@@ -112,4 +112,55 @@ completeTodo(0);
 
 function completeTodo(id: number){
     console.log("Die ID lautet: " + id);
+    for (const i of todos){
+        if (i.id === id){
+            console.log("Gefunden und Titel lautet: " + i.title);
+            i.completed = true;
+        } 
+        
+    }
+    showTodos();
 }
+
+const fourthTodo: Todo = {
+    id: 3,
+    title: "addTodoExCercise",
+    description: "addTodoExCercise",
+    completed: false,
+    priority: "medium"
+}
+
+addTodo(fourthTodo);
+
+function addTodo(transmitTodo: Todo){
+    console.log("-------------");
+    todos.push(transmitTodo);
+    showTodos();
+}
+
+
+searchID(0);
+searchID(10);
+
+function searchID(id:number){
+    
+}
+
+console.log("-------------");
+todos.forEach((element) => {
+    console.log(element.title);
+});
+
+for(const eleme of todos){
+    console.log(eleme.title);
+}
+
+const foundTodo = todos.find((element) => element.id === 2);
+
+const foundTodo2 = todos.find((element) =>{
+    return element.id === 2;
+});
+
+
+console.log(foundTodo);
+
