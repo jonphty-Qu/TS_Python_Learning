@@ -60,6 +60,17 @@ const thirdTodo: Todo = {
 };
 console.log(thirdTodo);
 
+const fourthTodo: Todo = {
+    id: 3,
+    title: "addTodoExCercise",
+    description: "addTodoExCercise",
+    completed: false,
+    priority: "medium"
+}
+
+
+
+
 const test: string = "test";
 let test2: string;
 
@@ -83,9 +94,12 @@ for (let i = 0; i< todos.length; i++) {
     }
 }
 
+showTodos("Meine Aufgaben");
 
-
-function showTodos(){
+function showTodos(heading?: string): void{
+    if(heading) {
+        console.log(heading);
+    }
     for (const element of todos) {
         if(element.completed === true){
             console.log("[x] " + element.title);
@@ -96,11 +110,13 @@ function showTodos(){
             console.log("WICHTIG");
         }
     }
+
 }
 
 showTodos();
+
 showOpenTodos();
-function showOpenTodos(){
+function showOpenTodos(): void{
     for (const i of todos){
         if(i.completed === false){
             console.log("Offene Aufgabe: " + i.title);
@@ -110,7 +126,7 @@ function showOpenTodos(){
 
 completeTodo(0);
 
-function completeTodo(id: number){
+function completeTodo(id: number): void{
     console.log("Die ID lautet: " + id);
     for (const i of todos){
         if (i.id === id){
@@ -122,29 +138,15 @@ function completeTodo(id: number){
     showTodos();
 }
 
-const fourthTodo: Todo = {
-    id: 3,
-    title: "addTodoExCercise",
-    description: "addTodoExCercise",
-    completed: false,
-    priority: "medium"
-}
 
-addTodo(fourthTodo);
 
-function addTodo(transmitTodo: Todo){
+function addTodo(transmitTodo: Todo): void{
     console.log("-------------");
     todos.push(transmitTodo);
     showTodos();
 }
 
-
-searchID(0);
-searchID(10);
-
-function searchID(id:number){
-    
-}
+addTodo(fourthTodo);
 
 console.log("-------------");
 todos.forEach((element) => {
@@ -161,6 +163,39 @@ const foundTodo2 = todos.find((element) =>{
     return element.id === 2;
 });
 
-
+const openTodos = todos.filter((element) => element.completed === false);
+const titles = todos.map((element) => element.title);
+console.log(titles);
 console.log(foundTodo);
+console.log(openTodos);
 
+const mapTodo = todos.map((element) => element.id);
+console.log(mapTodo);
+
+function example(): void{
+    console.log("Example");
+}
+example();
+
+const findUnd = todos.find((element) => element.id === 2);
+
+function findUndPhase2(): void {
+    if (findUnd === undefined){
+        console.log("Nicht Gefunden");
+
+    }else{
+        
+        console.log("Gefunden, der titel lautet: " + findUnd.title);
+    }
+}
+console.log(findUnd);
+
+findUndPhase2();
+console.log("findTodoById " , findTodoByID(2));
+console.log("findTodoById " , findTodoByID(999));
+// findTodoByID(2);
+
+function findTodoByID(id: number): Todo | undefined {    
+    return todos.find((element) => element.id === id);
+
+}
